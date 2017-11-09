@@ -8,14 +8,16 @@ using System.Linq;
 namespace OfferPadTest
 {
     [TestClass]
-    public class TestWeb
+    public class TestHomePage
     {
+        public static string HomePageURL = System.Configuration.ConfigurationManager.AppSettings["HomePageURL"].ToString();
+
         [TestMethod]
         public void TestHomePageHasAddressInput()
         {
             using (var driver = new ChromeDriver())
             {
-                driver.Navigate().GoToUrl("https://www.offerpad.com/");
+                driver.Navigate().GoToUrl(HomePageURL);
 
                 var addressInput = driver.FindElementsById("address-input").FirstOrDefault();
 
@@ -28,7 +30,7 @@ namespace OfferPadTest
         {
             using (var driver = new ChromeDriver())
             {
-                driver.Navigate().GoToUrl("https://www.offerpad.com/");
+                driver.Navigate().GoToUrl(HomePageURL);
 
                 var error = driver.FindElementsByClassName("error").FirstOrDefault();
 
