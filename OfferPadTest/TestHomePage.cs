@@ -10,12 +10,13 @@ namespace OfferPadTest
     [TestClass]
     public class TestHomePage
     {
-        public static string HomePageURL = System.Configuration.ConfigurationManager.AppSettings["HomePageURL"].ToString();
+        public static string HomePageURL = "https://opautomatedqa-1012-web.azurewebsites.net/";
+        public static string ChromeDriverFolder = "/";
 
         [TestMethod]
         public void TestHomePageHasAddressInput()
         {
-            using (var driver = new ChromeDriver())
+            using (var driver = new ChromeDriver(ChromeDriverFolder))
             {
                 driver.Navigate().GoToUrl(HomePageURL);
 
@@ -28,7 +29,7 @@ namespace OfferPadTest
         [TestMethod]
         public void TestHomePageDoesNotHaveError()
         {
-            using (var driver = new ChromeDriver())
+            using (var driver = new ChromeDriver(ChromeDriverFolder))
             {
                 driver.Navigate().GoToUrl(HomePageURL);
 
