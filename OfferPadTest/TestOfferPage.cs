@@ -52,6 +52,9 @@ namespace OfferPadTest
                 //receives error with trailing spaces
                 validators.zipCodeValidation(driver, "85255-2222  ");
 
+                //receives error with spaces in middle
+                validators.zipCodeValidation(driver, "85266     9222  ");
+
                 driver.Quit();
 
             }
